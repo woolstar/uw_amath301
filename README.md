@@ -1,4 +1,4 @@
-###  experiments in math
+###  Experiments in discrete math
 
 Follow along as I try to keep up with Steve Brunton ( https://www.youtube.com/c/Eigensteve ), and
 his classes *Beginning Scientific Computing* (AMATH 301) and *Engineering Mathematics* (ME 564).  He does
@@ -128,14 +128,30 @@ Suppliments
 - [Live audio FFT](./amath301_W10S01_AudioFFT.jl)
 - [Discrete Fourier Transform](./amath301_W10S02_DFT.jl)
 
+----
+#### Bootstrap
 
-### Misc
+There is a script for determining all the modules required for these pages so that they can be loaded in bulk.
+My appologies, but it is written in `perl`, as I have not learned how to do this as easily in `julia` yet.
 
-Warmup with
+    perl add.pl | julia
+
+This will generate **julia** commands for loading all the packages the current directory requires.
+Without the pipe the output looks something like this:
+
+    using Pkg
+    Pkg.add( ["AbstractPlotting","BenchmarkTools","Clp","Colors","Compose","DSP","Dates","Dierckx","DifferentialEquations","FFTW","FileIO","ForwardDiff","HypertextLiteral","InteractiveUtils","Interpolations","JLD","JSON","JSServe","JuMP","LibSndFile","Libdl","LinearAlgebra","LoopVectorization","LsqFit","Markdown","MathOptInterface","NumericalIntegration","ODE","Optim","ParameterizedFunctions","Pkg","Plots","Pluto","Polynomials","QuadGK","Random","SampledSignals","Statistics","Trapz","WGLMakie"])
+
+#### Warm up
+
+The interactive use of **julia** will be a little better if some of the common packages are pre-loaded,
+though this is changing over time as the core platform team works to improve startup performance.
 
     using Pluto ;  using Plots ;  using JLD ;  using JSON ; 
     using Statistics ;  using LinearAlgebra ;  using ODE ;  using Random ;
     Pluto.run()
+
+#### Lost technology
 
 I haven't found an example of Phase Planes in Julia yet, so for now I'm relying on the web page:
 https://aeb019.hosted.uark.edu/pplane.html
